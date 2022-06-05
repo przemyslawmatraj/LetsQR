@@ -96,7 +96,8 @@
             Padding="20"
                    VerticalAlignment="Center"
                    FontWeight="Bold">
-            Język 1
+            Język 1 
+            <ComboBox Height="32"  Width="100"></ComboBox>
         </TextBlock>
         <TextBlock 
                    Grid.Column="2"
@@ -105,7 +106,10 @@
             Padding="20"
                    VerticalAlignment="Center"
                    FontWeight="Bold">
-            Język 2
+            Język 2 
+                
+                <ComboBox Height="32"  Width="100"></ComboBox>
+
         </TextBlock>
         <Label FontSize="18"
                Padding="20"
