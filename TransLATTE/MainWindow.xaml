@@ -5,8 +5,123 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TransLATTE"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="720" Width="1280">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.RowSpan="6" Grid.ColumnSpan="3" Fill="AntiqueWhite" />
+        <Rectangle Grid.Column="3" Grid.RowSpan="6" Grid.ColumnSpan="2" Fill="BurlyWood" />
+        <TextBox x:Name="FromLanguage"
+         Grid.Row="3"
+            FontSize="18"
+            TextAlignment="Left"
+            BorderThickness="5"
+                 BorderBrush="Black"
+            VerticalAlignment="Center"
+            Padding="10"
+            Margin="10,0,10,0" Grid.ColumnSpan="1" Grid.RowSpan="2" Height="234"
+            >Sentencja w twoim jezyku</TextBox>
+        <TextBox x:Name="ToLanguage"
+         Grid.Row="3"
+                 Grid.Column="2"
+            FontSize="18"
+            TextAlignment="Left"
+            BorderThickness="5"
+                 BorderBrush="Black"
+            VerticalAlignment="Center"
+            Padding="10"
+            Margin="10,0,10,0" Grid.ColumnSpan="1"  Grid.RowSpan="2" Height="234"
+            >Przetłumaczona sentencja</TextBox>
+        <Button
+            Grid.Column="1"
+            Grid.Row= "3"
+            Margin="10,36,10,36"
+            FontSize="18"
+            x:Name="Translate">
+            Przetłumacz
+        </Button>
+        <Button
+            Grid.Column="1"
+            Grid.Row= "4"
+            Margin="10,36,10,36"
+            FontSize="18"
+            x:Name="ChangeLanguage">
+            Zamień
+        </Button>
+        <Image Grid.Column="1" >
+            <Image.Source>
+                <BitmapImage UriSource="/images/coffee.png" />
+            </Image.Source>
+        </Image>
+        <TextBlock FontSize="56"
+                   Padding="20"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold">
+            TransLATTE
+        </TextBlock>
+        <TextBlock 
+                   Grid.Column="2"
+                   FontSize="56"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold">
+            v. 1.0.0
+        </TextBlock>
+        
+        <Label FontSize="34"
+               Padding="20"
+               Grid.Row="1"
+               Grid.ColumnSpan="3"
+               VerticalAlignment="Center">
+           Wypad na kawe nie musi byc nie zręczny! 😎
+        </Label>
+        <TextBlock 
+                   Grid.Column="0"
+                   Grid.Row="2"
+                   FontSize="34"
+            Padding="20"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold">
+            Język 1
+        </TextBlock>
+        <TextBlock 
+                   Grid.Column="2"
+                   Grid.Row="2"
+                   FontSize="34"
+            Padding="20"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold">
+            Język 2
+        </TextBlock>
+        <Label FontSize="18"
+               Padding="20"
+               Grid.Row="5"
+               Grid.ColumnSpan="3"
+               VerticalAlignment="Center">
+            Projekt TransLATTE © Przemysław Matraj
+        </Label>
+        <Button
+            Grid.Column="2"
+            Grid.Row= "5"
+            Width="125"
+            Margin="185,45,15,27"
+            FontSize="18"
+            x:Name="Reset">
+            Restart
+        </Button>
     </Grid>
 </Window>
