@@ -12,15 +12,16 @@
         <materialDesign:TransitioningContent x:Name="TransitionContent" OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0.5}">
             <Grid>
                 <TextBlock Text="Generate QR Code" HorizontalAlignment="Center" FontSize="28" Foreground="White"></TextBlock>
-        <Image x:Name="QRCodeImage" Margin="10" Height="150" Width="150"></Image>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Height="70" Margin="0 300 0 0">
-                    <Button x:Name="generateBtn"  Margin="0,0,10,0" materialDesign:ButtonAssist.CornerRadius="20" Height="45" HorizontalAlignment="Center" Background="#53E7dE" BorderBrush="#53E7dE">
+        <Image x:Name="QRCodeImage"  Height="150" Width="150"></Image>
+                <TextBox x:Name="generateText" FontSize="16" Margin="0 220 0 0" Height="30" Width="500" Foreground="#fff" materialDesign:HintAssist.Hint="Wpisz tekst do wygenerowania" Cursor="Arrow" BorderBrush="White" ></TextBox>
+        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center"  Height="70" Margin="0 350 0 0">
+                    <Button x:Name="generateBtn"  Click="generateBtn_Click" Margin="0,0,10,0" materialDesign:ButtonAssist.CornerRadius="20" Height="45" HorizontalAlignment="Center" Background="#53E7dE" BorderBrush="#53E7dE">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Qrcode" Height="25" Width="25" Foreground="#292443"/>
                     <TextBlock FontSize="18" Foreground="#292443" Margin="7,0,0,0">Generuj kod</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="downloadBtn" materialDesign:ButtonAssist.CornerRadius="20" Height="45" HorizontalAlignment="Center" Background="#53E7dE" BorderBrush="#53E7dE">
+            <Button x:Name="downloadBtn" Click="downloadBtn_Click" materialDesign:ButtonAssist.CornerRadius="20" Height="45" HorizontalAlignment="Center" Background="#53E7dE" BorderBrush="#53E7dE">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Download" Height="25" Width="25" Foreground="#292443"/>
                     <TextBlock FontSize="18" Foreground="#292443" Margin="7,0,0,0">Zapisz kod</TextBlock>

@@ -41,7 +41,11 @@ namespace LetsQR
                     MainContent.Children.Clear();
                     MainContent.Children.Add(new Generate());
                     break;
-                    
+                case 1:
+                    MainContent.Children.Clear();
+                    MainContent.Children.Add(new ScanQR());
+                    break;
+
 
             }
 
@@ -49,7 +53,7 @@ namespace LetsQR
         private void MoveCursor(int index)
         {
             TransitionContent.OnApplyTemplate();
-            Cursor.Margin = new Thickness(30, (96 + index*73), 0,0);
+            Cursor.Margin = new Thickness(30, (96 + index*72), 0,0);
         }
 
         private void ButtonX_Click(object sender, RoutedEventArgs e)
