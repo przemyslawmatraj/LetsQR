@@ -31,6 +31,12 @@ namespace LetsQR
             DragMove();
         }
 
+        private void Refresh(UIElement view)
+        {
+            MainContent.Children.Clear();
+            MainContent.Children.Add(view);
+        }
+        
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = ListMenu.SelectedIndex;
@@ -38,15 +44,11 @@ namespace LetsQR
             switch (index)
             {
                 case 0:
-                    MainContent.Children.Clear();
-                    MainContent.Children.Add(new Generate());
+                    Refresh(new Generate());
                     break;
                 case 1:
-                    MainContent.Children.Clear();
-                    MainContent.Children.Add(new ScanQR());
+                    Refresh(new ScanQR());
                     break;
-
-
             }
 
         }
@@ -63,8 +65,7 @@ namespace LetsQR
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            MainContent.Children.Clear();
-            MainContent.Children.Add(new Generate());
+            Refresh(new Generate());
         }
     }
 }
