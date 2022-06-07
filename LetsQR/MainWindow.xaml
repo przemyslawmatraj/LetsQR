@@ -4,23 +4,49 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LetsQR"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="4*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        Title="LetsQR" Height="720" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Loaded="Grid_Loaded">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.5,0.5" EndPoint="1,1">
+                <GradientStop Color="#1d1a2f" Offset="1"/>
+                <GradientStop Color="#1d1a2f" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid VerticalAlignment="Top" Height="50" Background="#844cee" x:Name="DragGrid" MouseDown="DragGrid_MouseDown">
+            <Label Content="LetsQR" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" />
+        </Grid>
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Height="671" Margin="0,49,0,0" Width="400" Background="#372E64">
+            <materialDesign:TransitioningContent x:Name="TransitionContent" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                <Grid x:Name="Cursor" VerticalAlignment="Top" Height="70" Width="50" HorizontalAlignment="Left" Background="Aqua" Margin="-90,96,0,0" RenderTransformOrigin="0.5,0.5">
+                </Grid>
+            </materialDesign:TransitioningContent>
+            <Label Content="Menu" FontSize="30" FontWeight="Bold" Foreground="#FFFFFF"  VerticalAlignment="Top" Margin="30 30 0 20"/>
+            <ListView x:Name="ListMenu" VerticalAlignment="Top" Margin="0 100" SelectionChanged="ListView_SelectionChanged">
+                  
+               
+                
+                <ListViewItem Background="#292443" Margin="0 0 0 5">
+                    <StackPanel Orientation="Horizontal" Margin="30 5">
+                        <materialDesign:PackIcon Kind="qrcode" Foreground="#53e7de" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Label Content="QR Code Generator" Margin="10 0 0 0" FontSize="21" FontWeight="Bold" Foreground="#FFFFFF"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Background="#292443">
+                    <StackPanel Orientation="Horizontal" Margin="30 5">
+                        <materialDesign:PackIcon Kind="qrcode" Foreground="#53e7de" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Label Content="QR Code Reader" Margin="10 0 0 0" FontSize="21" FontWeight="Bold" Foreground="#FFFFFF"/>
+                    </StackPanel>
+                </ListViewItem>
+                
+            </ListView>
+            </Grid>
+        <Grid x:Name="MainContent" VerticalAlignment="Bottom" Width="850" Height="500" Margin="15" Background="Transparent" HorizontalAlignment="Right">
+            
+        </Grid>
+        <Button Click="ButtonX_Click" VerticalAlignment="Top" ToolTip="Close" HorizontalAlignment="Right" Background="#53e7de" Margin="0 80 30 0" Width="50" Height="50" Cursor="Hand" >
+            <materialDesign:PackIcon Kind="close" HorizontalAlignment="Right" Foreground="#292443" VerticalAlignment="Center" Width="20" Height="20"/>
+        </Button>
     </Grid>
 </Window>

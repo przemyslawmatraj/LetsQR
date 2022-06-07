@@ -23,6 +23,44 @@ namespace LetsQR
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void DragGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = ListMenu.SelectedIndex;
+            MoveCursor(index);
+            switch (index)
+            {
+                case 0:
+                    MainContent.Children.Clear();
+                    MainContent.Children.Add(new Generate());
+                    break;
+                    
+
+            }
+
+        }
+        private void MoveCursor(int index)
+        {
+            TransitionContent.OnApplyTemplate();
+            Cursor.Margin = new Thickness(30, (96 + index*73), 0,0);
+        }
+
+        private void ButtonX_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            MainContent.Children.Clear();
+            MainContent.Children.Add(new Generate());
         }
     }
 }
