@@ -49,6 +49,9 @@ namespace LetsQR
                 case 1:
                     Refresh(new ScanQR());
                     break;
+                case 2:
+                    Refresh(new Log());
+                    break;
             }
 
         }
