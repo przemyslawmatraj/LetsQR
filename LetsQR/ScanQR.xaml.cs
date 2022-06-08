@@ -33,9 +33,10 @@ namespace LetsQR
 
         private void scanBtn_Click(object sender, RoutedEventArgs e)
         {
-            BitmapImage bitmap = new BitmapImage(new Uri(openFileDialog.FileName));
             if (openFileDialog.ShowDialog() == true)
             {
+                BitmapImage bitmap = new BitmapImage(new Uri(openFileDialog.FileName));
+
                 QRCodeImage.Source = bitmap;
                 string decoded = decoder.Decode(new QRCodeBitmapImage(new Bitmap(openFileDialog.FileName)));
                 resutl.Text = decoded;
