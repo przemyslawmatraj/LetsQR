@@ -33,13 +33,22 @@ namespace LetsQR
 
         private void scanBtn_Click(object sender, RoutedEventArgs e)
         {
+            BitmapImage bitmap = new BitmapImage(new Uri(openFileDialog.FileName));
             if (openFileDialog.ShowDialog() == true)
             {
-                QRCodeImage.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+                QRCodeImage.Source = bitmap;
                 string decoded = decoder.Decode(new QRCodeBitmapImage(new Bitmap(openFileDialog.FileName)));
                 resutl.Text = decoded;
+                SqliteAccess.InsertLog(new LogModel
+                {
+                    Date = DateTime.Now,
+                    Type = "Zeskanowano",
+                    Base64QR = QRImage.ToBase64Image(bitmap)
+                });
 
             }
         }
+
+            
     }
 }

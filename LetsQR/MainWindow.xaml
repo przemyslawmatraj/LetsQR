@@ -33,10 +33,16 @@
                         <Label Content="QR Code Generator" Margin="10 0 0 0" FontSize="21" FontWeight="Bold" Foreground="#FFFFFF"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Background="#292443">
+                <ListViewItem Background="#292443" Margin="0 0 0 5">
                     <StackPanel Orientation="Horizontal" Margin="30 5">
                         <materialDesign:PackIcon Kind="qrcode" Foreground="#53e7de" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <Label Content="QR Code Reader" Margin="10 0 0 0" FontSize="21" FontWeight="Bold" Foreground="#FFFFFF"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Background="#292443">
+                    <StackPanel Orientation="Horizontal" Margin="30 5">
+                        <materialDesign:PackIcon Kind="Database" Foreground="#53e7de" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Label Content="Logi w bazie danych" Margin="10 0 0 0" FontSize="21" FontWeight="Bold" Foreground="#FFFFFF"/>
                     </StackPanel>
                 </ListViewItem>
                 

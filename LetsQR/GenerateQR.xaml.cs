@@ -18,6 +18,9 @@ using System.Windows.Shapes;
 using MessagingToolkit.QRCode.Codec;
 using MessagingToolkit.QRCode.Codec.Data;
 using Microsoft.Win32;
+using System.Data.SQLite;
+using System.Data;
+using System.Data.Common;
 
 namespace LetsQR
 {
@@ -39,6 +42,7 @@ namespace LetsQR
             encoder.QRCodeScale = 8;
             bitmap = encoder.Encode(generateText.Text);
             QRCodeImage.Source = QRImage.Generate(bitmap);
+            SaveToDatabase("Wygenerowano");
         }
 
         private void downloadBtn_Click(object sender, RoutedEventArgs e)
@@ -50,7 +54,17 @@ namespace LetsQR
             if (saveFileDialog.FileName != "" && bitmap!=null)
             {
                 bitmap.Save(string.Concat(saveFileDialog.FileName, ".png"), ImageFormat.Png);
+                SaveToDatabase("Zapisano");
             }
+        }
+        private void SaveToDatabase(string type)
+        {
+            SqliteAccess.InsertLog(new LogModel
+            {
+                Date = DateTime.Now,
+                Type = type,
+                Base64QR = QRImage.ToBase64(bitmap)
+            });
         }
     }
 }
